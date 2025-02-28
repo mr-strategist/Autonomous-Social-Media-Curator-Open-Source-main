@@ -1,0 +1,99 @@
+PS F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main> python -m social_media_bot.main
+F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\tools\content_tools.py:62: SyntaxWarning: invalid escape sequence '\$'
+  'linkedin': """
+<frozen runpy>:128: RuntimeWarning: 'social_media_bot.main' found in sys.modules after import of package 'social_media_bot', but prior to execution of 'social_media_bot.main'; this may result in unpredictable behaviour
+INFO:__main__:Initializing database...
+INFO:social_media_bot.database.init_db:Initializing database at: postgresql://postgres:Oreki750@localhost:5432/social_media_bot_test
+INFO:__main__:Database initialized successfully
+INFO:__main__:Platform statuses: {<Platform.DEVTO: 'dev.to'>: True, <Platform.MASTODON: 'mastodon'>: True}
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+# Agent: Content Creator
+## Task: Create and post engaging content by following these exact steps:
+1. Generate the following content:
+   - A post about the successful database verification
+   - Include the operational status and accessibility
+   - Make it engaging and informative
+2. Use the ContentPostingTool to:
+   - Show the content for review
+   - Get user approval
+   - Handle platform selection
+   - Post to selected platforms
+3. Report the posting results
+
+IMPORTANT: You must use the ContentPostingTool to handle the posting process.
+15:29:36 - LiteLLM:INFO: utils.py:2896 -
+LiteLLM completion() model= deepseek-chat; provider = deepseek
+INFO:LiteLLM:
+LiteLLM completion() model= deepseek-chat; provider = deepseek
+INFO:httpx:HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:29:48 - LiteLLM:INFO: utils.py:1084 - Wrapper: Completed Call, calling success_handler
+INFO:LiteLLM:Wrapper: Completed Call, calling success_handler
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+Dev.to authentication successful
+Posting to Dev.to with title: Database Verification Success
+Dev.to API Request URL: https://dev.to/api/articles
+Request Headers: {'api-key': 'ro16eAw5mJLkRMdtEspap5CN', 'Content-Type': 'application/json'}
+Request Body: {'article': {'title': 'Database Verification Success', 'body_markdown': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'published': True, 'tags': ['database', 'tech', 'update']}}
+Dev.to API Response Status: 201
+Dev.to API Response Body: {"type_of":"article","id":2300662,"title":"Database Verification Success","description":"🚀 Database Verification Successful! 🎉  Our systems are fully operational and accessible. All data is...","readable_publish_date":"Feb 27","slug":"database-verification-success-2j7h","path":"/oreki04/database-verification-success-2j7h","url":"https://dev.to/oreki04/database-verification-success-2j7h","comments_count":0,"public_reactions_count":0,"collection_id":null,"published_timestamp":"2025-02-27T09:59:50Z","language":"en","subforem_id":null,"positive_reactions_count":0,"cover_image":null,"social_image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg","canonical_url":"https://dev.to/oreki04/database-verification-success-2j7h","created_at":"2025-02-27T09:59:50Z","edited_at":null,"crossposted_at":null,"published_at":"2025-02-27T09:59:50Z","last_comment_at":"2025-02-27T09:59:50Z","reading_time_minutes":1,"tag_list":"database, tech, update","tags":["database","tech","update"],"body_html":"\u003cp\u003e🚀 Database Verification Successful! 🎉\u003c/p\u003e\n\n\u003cp\u003eOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\u003c/p\u003e\n\n\u003ch1\u003e\n  \u003ca name=\"databasesuccess-techupdate-operationalexcellence\" href=\"#databasesuccess-techupdate-operationalexcellence\"\u003e\n  \u003c/a\u003e\n  DatabaseSuccess #TechUpdate #OperationalExcellence\n\u003c/h1\u003e\n\n","body_markdown":"🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence","user":{"name":"Oreki Hotarou","username":"oreki04","twitter_username":null,"github_username":null,"user_id":2899150,"website_url":null,"profile_image":"https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg","profile_image_90":"https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg"}}
+Mastodon post URL: https://mastodon.social/@oreki04/114075264034545864
+
+
+# Agent: Content Creator
+## Thought: ```
+Thought: I need to generate engaging and informative content about the successful database verification, including operational status and accessibility. Then, I will use the Content Tools to manage and analyze the content.
+## Using tool: Content Tools
+## Tool Input:
+"{\"query\": \"Generate a post about the successful database verification, including operational status and accessibility, making it engaging and informative.\"}"
+## Tool Output:
+{'content': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'posting_results': {'dev.to': {'success': True, 'data': {'type_of': 'article', 'id': 2300662, 'title': 'Database Verification Success', 'description': '🚀 Database Verification Successful! 🎉  Our systems are fully operational and accessible. All data is...', 'readable_publish_date': 'Feb 27', 'slug': 'database-verification-success-2j7h', 'path': '/oreki04/database-verification-success-2j7h', 'url': 'https://dev.to/oreki04/database-verification-success-2j7h', 'comments_count': 0, 'public_reactions_count': 0, 'collection_id': None, 'published_timestamp': '2025-02-27T09:59:50Z', 'language': 'en', 'subforem_id': None, 'positive_reactions_count': 0, 'cover_image': None, 'social_image': 'https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg', 'canonical_url': 'https://dev.to/oreki04/database-verification-success-2j7h', 'created_at': '2025-02-27T09:59:50Z', 'edited_at': None, 'crossposted_at': None, 'published_at': '2025-02-27T09:59:50Z', 'last_comment_at': '2025-02-27T09:59:50Z', 'reading_time_minutes': 1, 'tag_list': 'database, tech, update', 'tags': ['database', 'tech', 'update'], 'body_html': '<p>🚀 Database Verification Successful! 🎉</p>\n\n<p>Our systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!</p>\n\n<h1>\n  <a name="databasesuccess-techupdate-operationalexcellence" href="#databasesuccess-techupdate-operationalexcellence">\n  </a>\n  DatabaseSuccess #TechUpdate #OperationalExcellence\n</h1>\n\n', 'body_markdown': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'user': {'name': 'Oreki Hotarou', 'username': 'oreki04', 'twitter_username': None, 'github_username': None, 'user_id': 2899150, 'website_url': None, 'profile_image': 'https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg', 'profile_image_90': 'https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg'}}, 'url': 'https://dev.to/oreki04/database-verification-success-2j7h'}, 'mastodon': {'success': True, 'data': Status({'id': 114075264034545864, 'uri': 'https://mastodon.social/users/oreki04/statuses/114075264034545864', 'url': 'https://mastodon.social/@oreki04/114075264034545864', 'account': Account({'id': 114069893741412180, 'username': 'oreki04', 'acct': 'oreki04', 'display_name': '', 'discoverable': None, 'group': False, 'locked': False, 'created_at': datetime.datetime(2025, 2, 26, 0, 0, tzinfo=tzutc()), 'following_count': 0, 'followers_count': 0, 'statuses_count': 1, 'note': '', 'url': 'https://mastodon.social/@oreki04', 'uri': 'https://mastodon.social/users/oreki04', 'avatar': 'https://mastodon.social/avatars/original/missing.png', 'header': 'https://mastodon.social/headers/original/missing.png', 'avatar_static': 'https://mastodon.social/avatars/original/missing.png', 'header_static': 'https://mastodon.social/headers/original/missing.png', 'moved_to_account': None, 'suspended': None, 'limited': None, 'bot': False, 'fields': [], 'emojis': [], 'last_status_at': datetime.datetime(2025, 2, 27, 0, 0), 'noindex': False, 'roles': [], 'role': None, 'source': None, 'mute_expires_at': None, 'indexable': False, 'hide_collections': None, 'memorial': None}), 'in_reply_to_id': None, 'in_reply_to_account_id': None, 'reblog': None, 'content': '<p>🚀 Database Verification Successful! 🎉</p><p>Our systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!</p><p><a href="https://mastodon.social/tags/DatabaseSuccess" class="mention hashtag" rel="tag">#<span>DatabaseSuccess</span></a> <a href="https://mastodon.social/tags/TechUpdate" class="mention hashtag" rel="tag">#<span>TechUpdate</span></a> <a href="https://mastodon.social/tags/OperationalExcellence" class="mention hashtag" rel="tag">#<span>OperationalExcellence</span></a></p>', 'created_at': datetime.datetime(2025, 2, 27, 9, 59, 51, 157000, tzinfo=tzutc()), 'reblogs_count': 0, 'favourites_count': 0, 'reblogged': False, 'favourited': False, 'sensitive': False, 'spoiler_text': '', 'visibility': 'public', 'mentions': [], 'media_attachments': [], 'emojis': [], 'tags': [Tag({'name': 'databasesuccess', 'url': 'https://mastodon.social/tags/databasesuccess', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None}), Tag({'name': 'techupdate', 'url': 'https://mastodon.social/tags/techupdate', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None}), Tag({'name': 'operationalexcellence', 'url': 'https://mastodon.social/tags/operationalexcellence', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None})], 'bookmarked': False, 'application': Application({'id': None, 'name': 'technews', 'website': None, 'vapid_key': None, 'redirect_uri': None, 'redirect_uris': None, 'scopes': None}), 'language': 'en', 'muted': False, 'pinned': False, 'replies_count': 0, 'card': None, 'poll': None, 'edited_at': None, 'filtered': []}), 'url': 'https://mastodon.social/@oreki04/114075264034545864'}}, 'status': 'success'}
+15:29:51 - LiteLLM:INFO: utils.py:2896 -
+LiteLLM completion() model= deepseek-chat; provider = deepseek
+INFO:LiteLLM:
+LiteLLM completion() model= deepseek-chat; provider = deepseek
+INFO:httpx:HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:30:10 - LiteLLM:INFO: utils.py:1084 - Wrapper: Completed Call, calling success_handler
+INFO:LiteLLM:Wrapper: Completed Call, calling success_handler
+
+Provider List: https://docs.litellm.ai/docs/providers
+
+
+
+# Agent: Content Creator
+## Final Answer:
+{
+    "content": "🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence",
+    "posting_results": {
+        "dev.to": {
+            "success": true,
+            "url": "https://dev.to/oreki04/database-verification-success-2j7h"
+        },
+        "mastodon": {
+            "success": true,
+            "url": "https://mastodon.social/@oreki04/114075264034545864"
+        }
+    },
+    "status": "success"
+}
+```
