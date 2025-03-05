@@ -1,10 +1,10 @@
 import os
 import logging
 from datetime import datetime
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, JSON, ForeignKey, Boolean, Float, Index, UniqueConstraint, event, and_, or_
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, JSON, ForeignKey, Boolean, Float, Index, UniqueConstraint, event, and_, or_, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, validates, Session
-from sqlalchemy.sql import text
+from sqlalchemy.sql import text, func
 from typing import Optional, Dict, List, Any, Union
 import json
 
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 Base = declarative_base()
 
 # Valid platform and status values
-VALID_PLATFORMS = ['twitter', 'linkedin']
+VALID_PLATFORMS = ['twitter', 'linkedin', 'devto', 'mastodon', 'threads']
 VALID_STATUSES = ['pending', 'generated', 'scheduled', 'posted', 'failed']
 VALID_SOURCE_TYPES = ['news_api', 'rss', 'manual', 'generated', 'test']
 
@@ -331,4 +331,12 @@ class AudienceMetrics(Base):
     platform = Column(String)
     metric_type = Column(String)
     value = Column(Integer)
-    recorded_at = Column(DateTime) 
+    recorded_at = Column(DateTime)
+
+class Post(Base):
+    __tablename__ = 'posts'
+    
+    id = Column(Integer, primary_key=True)
+    content = Column(Text, nullable=False)
+    source_url = Column(String, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now()) 

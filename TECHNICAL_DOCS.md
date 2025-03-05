@@ -26,7 +26,7 @@ social_media_bot/
 - **CrewAI**: Agent orchestration framework
 - **Deepseek LLM**: Content generation and analysis
 - **SQLAlchemy**: Database ORM
-- **Platform APIs**: Dev.to and Mastodon integration
+- **Platform APIs**: Dev.to, Mastodon, and Threads integration
 
 ## Core Components
 

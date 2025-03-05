@@ -13,6 +13,8 @@ from textblob import TextBlob
 from collections import Counter
 from ..platforms.manager import PlatformManager
 from ..config.platforms import Platform
+import random
+from newsapi import NewsApiClient
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +61,7 @@ class ContentGenerator(BaseTool):
         super().__init__(**kwargs)
         self._db = DatabaseManager()
         self._prompts = {
-            'linkedin': """
+            'linkedin': r"""
 Role: You are an expert LinkedIn content creator specialized in crafting engaging, educational content with a friendly and conversational tone.
 Task: You have to copy the style, tone, format of the examples and then write LinkedIn posts based on the news summaries and context provided, focusing on increasing engagement and educating the audience.
 Specifics:
@@ -871,35 +873,392 @@ class ContentFilter(BaseTool):
 class ContentTools(BaseTool):
     name: str = "Content Tools"
     description: str = "Tools for managing and analyzing content"
+    
     _platform_manager: PlatformManager = PrivateAttr()
+    _db_manager: DatabaseManager = PrivateAttr()
+    _news_api_key: str = PrivateAttr()
+    _banned_terms: List[str] = PrivateAttr()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self._platform_manager = PlatformManager()
+        self._db_manager = DatabaseManager()
+        self._news_api_key = os.getenv('NEWS_API_KEY')
+        self._banned_terms = [
+            "revolutionary", "groundbreaking", "disruptive", 
+            "game-changing", "paradigm shift", "next-level"
+        ]
+
+    def _check_duplicate_content(self, content: str) -> bool:
+        """Check if content was already posted"""
+        return self._db_manager.is_duplicate_content(content)
+
+    def _validate_content(self, news: Dict[str, str]) -> bool:
+        """Validate that the content is consistent and complete"""
+        if not all([news.get('title'), news.get('content'), news.get('url')]):
+            logger.warning("Missing required content fields")
+            return False
+        
+        # Ensure content is related to title
+        title_words = set(news['title'].lower().split())
+        content_words = set(news['content'].lower().split())
+        common_words = title_words.intersection(content_words)
+        
+        # If there's too little overlap, content might be mismatched
+        if len(common_words) < 2:
+            logger.warning("Content might not match title - low word overlap")
+            return False
+            
+        return True
+
+    def _get_competitors(self, company: str) -> str:
+        """Get relevant competitors for comparison"""
+        competitors = {
+            "apple": ["Samsung", "Google", "Microsoft"],
+            "microsoft": ["Apple", "Google", "Linux"],
+            "google": ["Apple", "Microsoft", "Amazon"],
+            "amazon": ["Microsoft", "Google", "Alibaba"],
+            "meta": ["Snap", "TikTok", "Twitter"],
+            "samsung": ["Apple", "Google", "Xiaomi"],
+            "sony": ["Microsoft", "Nintendo", "Apple"],
+            "amd": ["Intel", "Nvidia", "Qualcomm"],
+            "intel": ["AMD", "Qualcomm", "Apple"],
+            "nvidia": ["AMD", "Intel", "Qualcomm"]
+        }
+        
+        for key, values in competitors.items():
+            if key.lower() in company.lower():
+                return random.choice(values)
+        
+        return "competitors"
+
+    def _get_tech_category(self, title: str, content: str) -> str:
+        """Determine the tech category based on content"""
+        combined = (title + " " + content).lower()
+        
+        categories = {
+            "ai": ["ai", "artificial intelligence", "machine learning", "neural", "gpt", "llm"],
+            "mobile": ["phone", "smartphone", "android", "ios", "iphone", "pixel"],
+            "gaming": ["game", "gaming", "playstation", "xbox", "nintendo", "steam"],
+            "hardware": ["processor", "chip", "gpu", "cpu", "hardware", "silicon"],
+            "software": ["app", "application", "software", "program", "code", "development"],
+            "cloud": ["cloud", "aws", "azure", "server", "data center"],
+            "security": ["security", "privacy", "encryption", "hack", "breach"],
+            "vr": ["vr", "virtual reality", "ar", "augmented reality", "metaverse"]
+        }
+        
+        for category, keywords in categories.items():
+            if any(keyword in combined for keyword in keywords):
+                return category
+        
+        return "technology"
+
+    def _fetch_news_content(self) -> Dict[str, str]:
+        """Fetch news using NewsAPI"""
+        try:
+            if not self._news_api_key:
+                raise ValueError("NEWS_API_KEY not found in environment variables")
+                
+            newsapi = NewsApiClient(api_key=self._news_api_key)
+            top_headlines = newsapi.get_top_headlines(
+                language='en',
+                category='technology',
+                page_size=15
+            )
+            
+            if not top_headlines['articles']:
+                raise Exception("No news articles found")
+            
+            valid_articles = [
+                article for article in top_headlines['articles'] 
+                if article.get('description') and article.get('title')
+            ]
+            
+            if not valid_articles:
+                raise Exception("No valid articles found")
+                
+            article = random.choice(valid_articles)
+            news_data = {
+                'title': article['title'],
+                'content': article['description'],
+                'url': article['url'],
+                'source': article.get('source', {}).get('name', 'Unknown Source')
+            }
+
+            if not self._validate_content(news_data):
+                raise Exception("Invalid content - title and content mismatch")
+
+            return news_data
+
+        except Exception as e:
+            logger.error(f"Error fetching news: {str(e)}")
+            raise
+
+    def _generate_hook(self, title: str) -> str:
+        """Generate an engaging hook from the title"""
+        # Clean title by removing source names
+        for suffix in [' - TechCrunch', ' | TechRadar', ' | VentureBeat', ' - 9to5Mac', ' - The Verge']:
+            title = title.split(suffix)[0]
+            
+        return title.strip()
+
+    def _extract_company(self, title: str) -> str:
+        """Extract company name from title"""
+        # Common tech companies to look for
+        tech_companies = {
+            "apple": "Apple", "google": "Google", "microsoft": "Microsoft",
+            "meta": "Meta", "amazon": "Amazon", "nvidia": "NVIDIA",
+            "amd": "AMD", "intel": "Intel", "samsung": "Samsung",
+            "sony": "Sony", "tesla": "Tesla", "openai": "OpenAI"
+        }
+        
+        title_lower = title.lower()
+        # First try to find known companies
+        for company_lower, company_proper in tech_companies.items():
+            if company_lower in title_lower:
+                return company_proper
+            
+        # If no known company found, try to extract first proper noun
+        words = title.split()
+        for word in words:
+            if word[0].isupper() and len(word) > 2:
+                return word
+            
+        return "Tech"
+
+    def _create_hook(self, title: str, category: str) -> str:
+        """Create an engaging hook based on title and category"""
+        hooks = {
+            "ai": [
+                "AI just got interesting.",
+                "Here's why AI folks are buzzing:",
+                "The AI space is heating up."
+            ],
+            "mobile": [
+                "New phone, who dis?",
+                "Your next phone might be wild.",
+                "Mobile tech is evolving."
+            ],
+            "gaming": [
+                "Gamers, you'll want to see this.",
+                "Level up your gaming setup:",
+                "Gaming just got better."
+            ],
+            "hardware": [
+                "Tech specs that actually matter:",
+                "Hardware nerds, assemble!",
+                "Power users, check this out:"
+            ],
+            "software": [
+                "App developers are cooking.",
+                "Your apps are about to change.",
+                "Software update worth noting:"
+            ],
+            "cloud": [
+                "Cloud tech that matters:",
+                "Future of cloud is here:",
+                "Cloud computing update:"
+            ]
+        }
+        
+        category_hooks = hooks.get(category, ["Interesting tech update:"])
+        return random.choice(category_hooks)
+
+    def _simplify_tech_terms(self, description: str) -> str:
+        """Simplify technical terms for broader audience"""
+        # Common technical terms and their simpler alternatives
+        tech_terms = {
+            "artificial intelligence": "AI",
+            "machine learning": "smart tech",
+            "neural network": "AI brain",
+            "cryptocurrency": "digital money",
+            "blockchain": "digital ledger",
+            "quantum computing": "next-gen computing",
+            "augmented reality": "AR",
+            "virtual reality": "VR"
+        }
+        
+        simplified = description
+        for term, simple in tech_terms.items():
+            simplified = simplified.replace(term, simple)
+        
+        # Shorten to one clear sentence
+        sentences = simplified.split('.')
+        if sentences:
+            return sentences[0].strip()
+        return simplified
+
+    def _generate_insight(self, description: str) -> str:
+        """Generate a personal insight about the news"""
+        insights = [
+            "This could change how we use tech daily",
+            "Interesting move for the industry",
+            "The competition is getting fierce",
+            "Early days, but promising tech",
+            "Smart strategy, if it works",
+            "This solves a real problem",
+            "Game-changer for power users",
+            "Developers will love this"
+        ]
+        return random.choice(insights)
+
+    def _create_engagement_prompt(self, category: str) -> str:
+        """Create category-specific engagement prompt"""
+        prompts = {
+            "ai": "What's your take on AI development? Too fast, too slow, or just right?",
+            "mobile": "What feature would make you upgrade your phone right now?",
+            "gaming": "Gamers, is this worth the hype?",
+            "hardware": "Performance or price - what matters more to you?",
+            "software": "Would you try this? Drop a 👍 or 👎",
+            "cloud": "Cloud users, what's your biggest pain point?",
+            "security": "How do you balance convenience vs security?",
+            "vr": "VR/AR - future of tech or just hype?"
+        }
+        
+        return prompts.get(category, "Thoughts on this? Let's discuss 👇")
+
+    def _format_threads_content(self, title: str, description: str, category: str) -> str:
+        """Format content specifically for Threads platform"""
+        # Get emojis for the category
+        category_emojis = {
+            "ai": "🤖",
+            "mobile": "📱",
+            "gaming": "🎮",
+            "hardware": "💻",
+            "software": "⚡",
+            "cloud": "☁️",
+            "security": "🔒",
+            "vr": "🥽"
+        }
+        
+        emoji = category_emojis.get(category, "💡")
+        
+        # Create engaging thread content
+        thread_content = f"""{emoji} {title}
+
+{self._create_hook(title, category)}
+
+Key points:
+• {self._simplify_tech_terms(description)}
+• {self._generate_insight(description)}
+
+{self._create_engagement_prompt(category)}
+
+#Tech #{category}"""
+
+        # Ensure content meets Threads length requirements
+        if len(thread_content) > 500:
+            thread_content = thread_content[:497] + "..."
+        
+        return thread_content
+
+    def _format_platform_content(self, content: Dict[str, str], platform: Platform) -> str:
+        """Format content specifically for each platform with a more human touch"""
+        # Clean title and get core info
+        title = content['title'].split(' - ')[0].strip()
+        description = content['content']
+        
+        # Get tech category and company info
+        category = self._get_tech_category(title, description)
+        company = self._extract_company(title)
+        competitor = self._get_competitors(company)
+        
+        if platform == Platform.THREADS:
+            return self._format_threads_content(title, description, category)
+        elif platform == Platform.DEVTO:
+            return f"""---
+title: {title}
+published: true
+tags: {category}, technology, tech
+canonical_url: {content['source_url']}
+---
+
+{title}
+
+{description}
+
+I've been following this development, and it's interesting to compare {company}'s approach vs {competitor}'s strategy in this space. While {company} seems to focus on innovation, {competitor} has been emphasizing reliability.
+
+As someone who's worked with both companies' products, I see pros and cons to each approach:
+
+Pros:
+- {company}'s solution could improve performance in key areas
+- The pricing seems competitive compared to alternatives
+- Integration with existing systems looks promising
+
+But there are some concerns:
+- New technology often comes with stability issues
+- The learning curve might be steep for some users
+- Long-term support remains a question mark
+
+What's your take - would you choose cutting-edge features or stick with proven technology?
+
+Read the full story: {content['source_url']}
+
+*Originally published on {content['source_name']}*
+"""
+        
+        elif platform == Platform.MASTODON:
+            return f"""{title}
+
+{self._create_hook(title, category)}
+{self._simplify_tech_terms(description)}
+
+{self._create_engagement_prompt(category)}
+
+#Tech #{category} #{company}"""[:500]
+        
+        return content['content']
 
     def _run(self, query: str) -> Dict[str, Any]:
         """Run content tools operations"""
         try:
+            # Fetch news content
+            news = self._fetch_news_content()
+            
+            # Create content data
+            content_data = {
+                'title': news['title'],
+                'content': news['content'],
+                'source_url': news['url'],
+                'source_name': news['source']
+            }
+            
+            # Check for duplicates
+            if self._check_duplicate_content(content_data['content']):
+                return {
+                    "success": False,
+                    "error": "Similar content was already posted recently"
+                }
+
             enabled_platforms = self._platform_manager.check_all_statuses()
-            content = self._generate_content()
             posting_results = {}
             
             for platform, is_enabled in enabled_platforms.items():
                 if is_enabled:
                     kwargs = {}
                     if platform == Platform.DEVTO:
-                        kwargs['title'] = "Database Verification Success"
-                        kwargs['tags'] = ['database', 'tech', 'update']
+                        kwargs['title'] = content_data['title']
+                        category = self._get_tech_category(content_data['title'], content_data['content'])
+                        kwargs['tags'] = [category, 'technology', 'tech']
                     
+                    formatted_content = self._format_platform_content(content_data, platform)
                     result = self._platform_manager.post_to_platform(
                         platform=platform,
-                        content=content,
+                        content=formatted_content,
                         **kwargs
                     )
                     posting_results[platform.value] = result
+
+            # Store successful post in database
+            if any(result['success'] for result in posting_results.values()):
+                self._db_manager.store_post(
+                    content=content_data['content'],
+                    source_url=content_data['source_url']
+                )
             
             return {
-                "content": content,
+                "content": content_data['content'],
                 "posting_results": posting_results,
                 "status": "success"
             }
@@ -910,16 +1269,6 @@ class ContentTools(BaseTool):
                 "success": False,
                 "error": str(e)
             }
-
-    def _generate_content(self) -> str:
-        """Generate content for posting"""
-        return (
-            "🚀 Database Verification Successful! 🎉\n\n"
-            "Our systems are fully operational and accessible. "
-            "All data is secure, verified, and ready to support your needs. "
-            "Stay connected with us for seamless performance!\n\n"
-            "#DatabaseSuccess #TechUpdate #OperationalExcellence"
-        )
 
     async def _arun(self, query: str) -> str:
         raise NotImplementedError("Async not supported") 

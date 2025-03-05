@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.engine import Engine
-from .models import Base
+from .models import Base, Post
 
 logger = logging.getLogger(__name__)
 
@@ -43,3 +43,14 @@ def init_database(create_test: bool = False) -> tuple:
     except Exception as e:
         logger.error(f"Error initializing database: {str(e)}")
         raise
+
+def init_db(database_url: str):
+    """Initialize database"""
+    try:
+        engine = create_engine(database_url)
+        Base.metadata.create_all(engine)  # This will create the new Post table
+        logger.info(f"Initialized database at: {database_url}")
+        return True
+    except Exception as e:
+        logger.error(f"Database initialization failed: {str(e)}")
+        return False

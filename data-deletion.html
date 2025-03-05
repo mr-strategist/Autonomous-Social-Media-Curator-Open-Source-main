@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Request - Autonomous Social Media Curator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Deletion Request</h1>
+    
+    <p>In accordance with data protection regulations, you have the right to request the deletion of your personal data from our systems. Please fill out the form below to submit your data deletion request.</p>
+    
+    <div class="container">
+        <form id="deletionForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userId">User ID or Username (if known):</label>
+                <input type="text" id="userId" name="userId">
+            </div>
+            
+            <div class="form-group">
+                <label for="reason">Reason for Deletion (Optional):</label>
+                <textarea id="reason" name="reason" rows="4"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="confirmation" required>
+                    I confirm that I want all my personal data to be deleted from the Autonomous Social Media Curator application.
+                </label>
+            </div>
+            
+            <button type="submit">Submit Deletion Request</button>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+            <p><strong>Thank you for your request.</strong></p>
+            <p>We have received your data deletion request and will process it within 30 days. You will receive a confirmation email once your data has been deleted.</p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('deletionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, this would send the form data to your server
+            // For this demo, we'll just show the success message
+            document.getElementById('deletionForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Log the form data to console (for demonstration purposes only)
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            console.log('Form data:', formObject);
+            
+            // In a real implementation, you would send this data to your server
+            // fetch('/api/data-deletion', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log('Success:', data))
+            // .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

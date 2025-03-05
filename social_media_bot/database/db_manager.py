@@ -4,7 +4,7 @@ import logging
 from sqlalchemy import create_engine, desc, text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
-from .models import Base, ContentSource, PostHistory, ContentMetrics, SafetyLog
+from .models import Base, ContentSource, PostHistory, ContentMetrics, SafetyLog, Post
 import os
 import hashlib
 import json
@@ -528,4 +528,33 @@ class DatabaseManager:
         if hasattr(self, 'session'):
             self.session.close()
         if hasattr(self, 'engine'):
-            self.engine.dispose() 
+            self.engine.dispose()
+
+    def is_duplicate_content(self, content: str) -> bool:
+        """Check if similar content was posted in last 24 hours"""
+        session = self.Session()
+        try:
+            # Get posts from last 24 hours
+            recent_posts = session.query(Post).filter(
+                Post.created_at >= datetime.utcnow() - timedelta(hours=24)
+            ).all()
+            
+            # Compare content similarity
+            content_hash = hashlib.md5(content.encode()).hexdigest()
+            for post in recent_posts:
+                post_hash = hashlib.md5(post.content.encode()).hexdigest()
+                if post_hash == content_hash:
+                    return True
+            return False
+        finally:
+            session.close()
+
+    def store_post(self, content: str, source_url: str = None):
+        """Store post in database"""
+        session = self.Session()
+        try:
+            post = Post(content=content, source_url=source_url)
+            session.add(post)
+            session.commit()
+        finally:
+            session.close() 

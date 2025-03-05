@@ -1,15 +1,17 @@
 PS F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main> python -m social_media_bot.main
-F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\tools\content_tools.py:62: SyntaxWarning: invalid escape sequence '\$'
-  'linkedin': """
 <frozen runpy>:128: RuntimeWarning: 'social_media_bot.main' found in sys.modules after import of package 'social_media_bot', but prior to execution of 'social_media_bot.main'; this may result in unpredictable behaviour
 INFO:__main__:Initializing database...
 INFO:social_media_bot.database.init_db:Initializing database at: postgresql://postgres:Oreki750@localhost:5432/social_media_bot_test
 INFO:__main__:Database initialized successfully
-INFO:__main__:Platform statuses: {<Platform.DEVTO: 'dev.to'>: True, <Platform.MASTODON: 'mastodon'>: True}
+INFO:__main__:Platform statuses: {<Platform.DEVTO: 'dev.to'>: True, <Platform.MASTODON: 'mastodon'>: True, <Platform.THREADS: 'threads'>: True}
+INFO:social_media_bot.database.db_manager:Database indexes created successfully
+INFO:social_media_bot.database.db_manager:Database manager initialized successfully
 
 Provider List: https://docs.litellm.ai/docs/providers
 
 ERROR:root:Failed to get supported params: argument of type 'NoneType' is not iterable
+INFO:social_media_bot.database.db_manager:Database indexes created successfully
+INFO:social_media_bot.database.db_manager:Database manager initialized successfully
 
 Provider List: https://docs.litellm.ai/docs/providers
 
@@ -40,60 +42,431 @@ ERROR:root:Failed to get supported params: argument of type 'NoneType' is not it
 3. Report the posting results
 
 IMPORTANT: You must use the ContentPostingTool to handle the posting process.
-15:29:36 - LiteLLM:INFO: utils.py:2896 -
+22:26:10 - LiteLLM:INFO: utils.py:2896 -
 LiteLLM completion() model= deepseek-chat; provider = deepseek
 INFO:LiteLLM:
 LiteLLM completion() model= deepseek-chat; provider = deepseek
 INFO:httpx:HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-15:29:48 - LiteLLM:INFO: utils.py:1084 - Wrapper: Completed Call, calling success_handler
+22:26:22 - LiteLLM:INFO: utils.py:1084 - Wrapper: Completed Call, calling success_handler
 INFO:LiteLLM:Wrapper: Completed Call, calling success_handler
 
 Provider List: https://docs.litellm.ai/docs/providers
 
 Dev.to authentication successful
-Posting to Dev.to with title: Database Verification Success
+Posting to Dev.to with title: New GTA Online McKenzie Field Hangar Released, Price And Details - RockstarINTEL
 Dev.to API Request URL: https://dev.to/api/articles
 Request Headers: {'api-key': 'ro16eAw5mJLkRMdtEspap5CN', 'Content-Type': 'application/json'}
-Request Body: {'article': {'title': 'Database Verification Success', 'body_markdown': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'published': True, 'tags': ['database', 'tech', 'update']}}
+Request Body: {'article': {'title': 'New GTA Online McKenzie Field Hangar Released, Price And Details - RockstarINTEL', 'body_markdown': "---\ntitle: New GTA Online McKenzie Field Hangar Released, Price And Details\npublished: true\ntags: ai, technology, tech\ncanonical_url: https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\n---\n\nNew GTA Online McKenzie Field Hangar Released, Price And Details\n\nAs part of the GTA Online Agents of Sabotage/Oscar Guzman Flies Again update dripfeed content update, a brand new hangar providing various features has been released into the game.\n\nI've been following this development, and it's interesting to compare New's approach vs competitors's strategy in this space. While New seems to focus on innovation, competitors has been emphasizing reliability.\n\nAs someone who's worked with both companies' products, I see pros and cons to each approach:\n\nPros:\n- New's solution could improve performance in key areas\n- The pricing seems competitive compared to alternatives\n- Integration with existing systems looks promising\n\nBut there are some concerns:\n- New technology often comes with stability issues\n- The learning curve might be steep for some users\n- Long-term support remains a question mark\n\nWhat's your take - would you choose cutting-edge features or stick with proven technology?\n\nRead the full story: https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\n\n*Originally published on Rockstarintel.com*\n", 'published': True, 'tags': ['ai', 'technology', 'tech']}}
 Dev.to API Response Status: 201
-Dev.to API Response Body: {"type_of":"article","id":2300662,"title":"Database Verification Success","description":"🚀 Database Verification Successful! 🎉  Our systems are fully operational and accessible. All data is...","readable_publish_date":"Feb 27","slug":"database-verification-success-2j7h","path":"/oreki04/database-verification-success-2j7h","url":"https://dev.to/oreki04/database-verification-success-2j7h","comments_count":0,"public_reactions_count":0,"collection_id":null,"published_timestamp":"2025-02-27T09:59:50Z","language":"en","subforem_id":null,"positive_reactions_count":0,"cover_image":null,"social_image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg","canonical_url":"https://dev.to/oreki04/database-verification-success-2j7h","created_at":"2025-02-27T09:59:50Z","edited_at":null,"crossposted_at":null,"published_at":"2025-02-27T09:59:50Z","last_comment_at":"2025-02-27T09:59:50Z","reading_time_minutes":1,"tag_list":"database, tech, update","tags":["database","tech","update"],"body_html":"\u003cp\u003e🚀 Database Verification Successful! 🎉\u003c/p\u003e\n\n\u003cp\u003eOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\u003c/p\u003e\n\n\u003ch1\u003e\n  \u003ca name=\"databasesuccess-techupdate-operationalexcellence\" href=\"#databasesuccess-techupdate-operationalexcellence\"\u003e\n  \u003c/a\u003e\n  DatabaseSuccess #TechUpdate #OperationalExcellence\n\u003c/h1\u003e\n\n","body_markdown":"🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence","user":{"name":"Oreki Hotarou","username":"oreki04","twitter_username":null,"github_username":null,"user_id":2899150,"website_url":null,"profile_image":"https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg","profile_image_90":"https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg"}}
-Mastodon post URL: https://mastodon.social/@oreki04/114075264034545864
+Dev.to API Response Body: {"type_of":"article","id":2313380,"title":"New GTA Online McKenzie Field Hangar Released, Price And Details","description":"New GTA Online McKenzie Field Hangar Released, Price And Details  As part of the GTA Online Agents of...","readable_publish_date":"Mar 5","slug":"new-gta-online-mckenzie-field-hangar-released-price-and-details-3fb2","path":"/oreki04/new-gta-online-mckenzie-field-hangar-released-price-and-details-3fb2","url":"https://dev.to/oreki04/new-gta-online-mckenzie-field-hangar-released-price-and-details-3fb2","comments_count":0,"public_reactions_count":0,"collection_id":null,"published_timestamp":"2025-03-05T16:56:27Z","language":"en","subforem_id":null,"positive_reactions_count":0,"cover_image":null,"social_image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg","canonical_url":"https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/","created_at":"2025-03-05T16:56:28Z","edited_at":null,"crossposted_at":null,"published_at":"2025-03-05T16:56:27Z","last_comment_at":"2025-03-05T16:56:27Z","reading_time_minutes":1,"tag_list":"ai, technology, tech","tags":["ai","technology","tech"],"body_html":"\u003cp\u003eNew GTA Online McKenzie Field Hangar Released, Price And Details\u003c/p\u003e\n\n\u003cp\u003eAs part of the GTA Online Agents of Sabotage/Oscar Guzman Flies Again update dripfeed content update, a brand new hangar providing various features has been released into the game.\u003c/p\u003e\n\n\u003cp\u003eI've been following this development, and it's interesting to compare New's approach vs competitors's strategy in this space. While New seems to focus on innovation, competitors has been emphasizing reliability.\u003c/p\u003e\n\n\u003cp\u003eAs someone who's worked with both companies' products, I see pros and cons to each approach:\u003c/p\u003e\n\n\u003cp\u003ePros:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eNew's solution could improve performance in key areas\u003c/li\u003e\n\u003cli\u003eThe pricing seems competitive compared to alternatives\u003c/li\u003e\n\u003cli\u003eIntegration with existing systems looks promising\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eBut there are some concerns:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eNew technology often comes with stability issues\u003c/li\u003e\n\u003cli\u003eThe learning curve might be steep for some users\u003c/li\u003e\n\u003cli\u003eLong-term support remains a question mark\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eWhat's your take - would you choose cutting-edge features or stick with proven technology?\u003c/p\u003e\n\n\u003cp\u003eRead the full story: \u003ca href=\"https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003ehttps://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003e\u003cem\u003eOriginally published on Rockstarintel.com\u003c/em\u003e\u003c/p\u003e\n\n","body_markdown":"---\ntitle: New GTA Online McKenzie Field Hangar Released, Price And Details\npublished: true\ntags: ai, technology, tech\ncanonical_url: https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\n---\n\nNew GTA Online McKenzie Field Hangar Released, Price And Details\n\nAs part of the GTA Online Agents of Sabotage/Oscar Guzman Flies Again update dripfeed content update, a brand new hangar providing various features has been released into the game.\n\nI've been following this development, and it's interesting to compare New's approach vs competitors's strategy in this space. While New seems to focus on innovation, competitors has been emphasizing reliability.\n\nAs someone who's worked with both companies' products, I see pros and cons to each approach:\n\nPros:\n- New's solution could improve performance in key areas\n- The pricing seems competitive compared to alternatives\n- Integration with existing systems looks promising\n\nBut there are some concerns:\n- New technology often comes with stability issues\n- The learning curve might be steep for some users\n- Long-term support remains a question mark\n\nWhat's your take - would you choose cutting-edge features or stick with proven technology?\n\nRead the full story: https://rockstarintel.com/gta-online-mckenzie-field-hangar-price-details/\n\n*Originally published on Rockstarintel.com*\n","user":{"name":"Oreki Hotarou","username":"oreki04","twitter_username":null,"github_username":null,"user_id":2899150,"website_url":null,"profile_image":"https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg","profile_image_90":"https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg"}}
+Mastodon post URL: https://mastodon.social/@oreki04/114110876179219977
 
+DevTools listening on ws://127.0.0.1:52387/devtools/browser/f1aa72cd-fa15-4766-9fa6-b49e3c38ba5c
+[1300:20308:0305/222636.124:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A030270094500000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[1300:20308:0305/222636.160:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A000270094500000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[1300:20308:0305/222644.627:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A000270094500000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+2025-03-05 22:26:47,787 [ERROR] threads: Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
 
-# Agent: Content Creator
-## Thought: ```
-Thought: I need to generate engaging and informative content about the successful database verification, including operational status and accessibility. Then, I will use the Content Tools to manage and analyze the content.
-## Using tool: Content Tools
-## Tool Input:
-"{\"query\": \"Generate a post about the successful database verification, including operational status and accessibility, making it engaging and informative.\"}"
-## Tool Output:
-{'content': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'posting_results': {'dev.to': {'success': True, 'data': {'type_of': 'article', 'id': 2300662, 'title': 'Database Verification Success', 'description': '🚀 Database Verification Successful! 🎉  Our systems are fully operational and accessible. All data is...', 'readable_publish_date': 'Feb 27', 'slug': 'database-verification-success-2j7h', 'path': '/oreki04/database-verification-success-2j7h', 'url': 'https://dev.to/oreki04/database-verification-success-2j7h', 'comments_count': 0, 'public_reactions_count': 0, 'collection_id': None, 'published_timestamp': '2025-02-27T09:59:50Z', 'language': 'en', 'subforem_id': None, 'positive_reactions_count': 0, 'cover_image': None, 'social_image': 'https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg', 'canonical_url': 'https://dev.to/oreki04/database-verification-success-2j7h', 'created_at': '2025-02-27T09:59:50Z', 'edited_at': None, 'crossposted_at': None, 'published_at': '2025-02-27T09:59:50Z', 'last_comment_at': '2025-02-27T09:59:50Z', 'reading_time_minutes': 1, 'tag_list': 'database, tech, update', 'tags': ['database', 'tech', 'update'], 'body_html': '<p>🚀 Database Verification Successful! 🎉</p>\n\n<p>Our systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!</p>\n\n<h1>\n  <a name="databasesuccess-techupdate-operationalexcellence" href="#databasesuccess-techupdate-operationalexcellence">\n  </a>\n  DatabaseSuccess #TechUpdate #OperationalExcellence\n</h1>\n\n', 'body_markdown': '🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence', 'user': {'name': 'Oreki Hotarou', 'username': 'oreki04', 'twitter_username': None, 'github_username': None, 'user_id': 2899150, 'website_url': None, 'profile_image': 'https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg', 'profile_image_90': 'https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2899150%2Fe68b760a-c550-4754-9d09-8238aa1c5852.jpg'}}, 'url': 'https://dev.to/oreki04/database-verification-success-2j7h'}, 'mastodon': {'success': True, 'data': Status({'id': 114075264034545864, 'uri': 'https://mastodon.social/users/oreki04/statuses/114075264034545864', 'url': 'https://mastodon.social/@oreki04/114075264034545864', 'account': Account({'id': 114069893741412180, 'username': 'oreki04', 'acct': 'oreki04', 'display_name': '', 'discoverable': None, 'group': False, 'locked': False, 'created_at': datetime.datetime(2025, 2, 26, 0, 0, tzinfo=tzutc()), 'following_count': 0, 'followers_count': 0, 'statuses_count': 1, 'note': '', 'url': 'https://mastodon.social/@oreki04', 'uri': 'https://mastodon.social/users/oreki04', 'avatar': 'https://mastodon.social/avatars/original/missing.png', 'header': 'https://mastodon.social/headers/original/missing.png', 'avatar_static': 'https://mastodon.social/avatars/original/missing.png', 'header_static': 'https://mastodon.social/headers/original/missing.png', 'moved_to_account': None, 'suspended': None, 'limited': None, 'bot': False, 'fields': [], 'emojis': [], 'last_status_at': datetime.datetime(2025, 2, 27, 0, 0), 'noindex': False, 'roles': [], 'role': None, 'source': None, 'mute_expires_at': None, 'indexable': False, 'hide_collections': None, 'memorial': None}), 'in_reply_to_id': None, 'in_reply_to_account_id': None, 'reblog': None, 'content': '<p>🚀 Database Verification Successful! 🎉</p><p>Our systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!</p><p><a href="https://mastodon.social/tags/DatabaseSuccess" class="mention hashtag" rel="tag">#<span>DatabaseSuccess</span></a> <a href="https://mastodon.social/tags/TechUpdate" class="mention hashtag" rel="tag">#<span>TechUpdate</span></a> <a href="https://mastodon.social/tags/OperationalExcellence" class="mention hashtag" rel="tag">#<span>OperationalExcellence</span></a></p>', 'created_at': datetime.datetime(2025, 2, 27, 9, 59, 51, 157000, tzinfo=tzutc()), 'reblogs_count': 0, 'favourites_count': 0, 'reblogged': False, 'favourited': False, 'sensitive': False, 'spoiler_text': '', 'visibility': 'public', 'mentions': [], 'media_attachments': [], 'emojis': [], 'tags': [Tag({'name': 'databasesuccess', 'url': 'https://mastodon.social/tags/databasesuccess', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None}), Tag({'name': 'techupdate', 'url': 'https://mastodon.social/tags/techupdate', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None}), Tag({'name': 'operationalexcellence', 'url': 'https://mastodon.social/tags/operationalexcellence', 'history': None, 'following': None, 'id': None, 'trendable': None, 'usable': None, 'requires_review': None})], 'bookmarked': False, 'application': Application({'id': None, 'name': 'technews', 'website': None, 'vapid_key': None, 'redirect_uri': None, 'redirect_uris': None, 'scopes': None}), 'language': 'en', 'muted': False, 'pinned': False, 'replies_count': 0, 'card': None, 'poll': None, 'edited_at': None, 'filtered': []}), 'url': 'https://mastodon.social/@oreki04/114075264034545864'}}, 'status': 'success'}
-15:29:51 - LiteLLM:INFO: utils.py:2896 -
-LiteLLM completion() model= deepseek-chat; provider = deepseek
-INFO:LiteLLM:
-LiteLLM completion() model= deepseek-chat; provider = deepseek
-INFO:httpx:HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-15:30:10 - LiteLLM:INFO: utils.py:1084 - Wrapper: Completed Call, calling success_handler
-INFO:LiteLLM:Wrapper: Completed Call, calling success_handler
+ERROR:threads:Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
 
-Provider List: https://docs.litellm.ai/docs/providers
+2025-03-05 22:26:50,083 [WARNING] threads: Attempt 1 failed: Authentication failed
+WARNING:threads:Attempt 1 failed: Authentication failed
 
+DevTools listening on ws://127.0.0.1:52429/devtools/browser/0d42a5cc-2537-4270-937e-b9af24358157
+[21260:200:0305/222656.239:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A03027009C7C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[21260:200:0305/222656.266:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A00027009C7C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[21260:200:0305/222701.272:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A00027009C7C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+2025-03-05 22:27:07,789 [ERROR] threads: Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
 
+ERROR:threads:Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
 
-# Agent: Content Creator
-## Final Answer:
-{
-    "content": "🚀 Database Verification Successful! 🎉\n\nOur systems are fully operational and accessible. All data is secure, verified, and ready to support your needs. Stay connected with us for seamless performance!\n\n#DatabaseSuccess #TechUpdate #OperationalExcellence",
-    "posting_results": {
-        "dev.to": {
-            "success": true,
-            "url": "https://dev.to/oreki04/database-verification-success-2j7h"
-        },
-        "mastodon": {
-            "success": true,
-            "url": "https://mastodon.social/@oreki04/114075264034545864"
-        }
-    },
-    "status": "success"
-}
-```
+2025-03-05 22:27:10,367 [WARNING] threads: Attempt 2 failed: Authentication failed
+WARNING:threads:Attempt 2 failed: Authentication failed
+
+DevTools listening on ws://127.0.0.1:52479/devtools/browser/426b14c4-98d6-4774-946c-459b5843bf33
+[10616:20056:0305/222726.404:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0402700C44E0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[10616:20056:0305/222726.435:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0702700C44E0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[10616:20056:0305/222731.461:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0702700C44E0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+2025-03-05 22:27:37,644 [ERROR] threads: Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+ERROR:threads:Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+2025-03-05 22:27:39,988 [WARNING] threads: Attempt 3 failed: Authentication failed
+WARNING:threads:Attempt 3 failed: Authentication failed
+2025-03-05 22:27:39,988 [WARNING] threads: Attempt 1 failed: Authentication failed
+WARNING:threads:Attempt 1 failed: Authentication failed
+
+DevTools listening on ws://127.0.0.1:52522/devtools/browser/246bee5b-9614-4011-ab07-b63cddba2e9f
+[7000:20728:0305/222745.925:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0B02700C45D0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[7000:20728:0305/222745.947:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0802700C45D0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[7000:20728:0305/222750.942:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0802700C45D0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+2025-03-05 22:27:57,522 [ERROR] threads: Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+ERROR:threads:Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+2025-03-05 22:27:59,850 [WARNING] threads: Attempt 1 failed: Authentication failed
+WARNING:threads:Attempt 1 failed: Authentication failed
+
+DevTools listening on ws://127.0.0.1:52572/devtools/browser/12d25650-159e-4aa7-81dd-ce56e4eb7f2a
+[10064:2560:0305/222805.696:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A03027006C680000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[10064:2560:0305/222805.727:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A00027006C680000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[10064:2560:0305/222810.900:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A00027006C680000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+2025-03-05 22:28:16,970 [ERROR] threads: Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+ERROR:threads:Login failed: Message:
+Stacktrace:
+        GetHandleVerifier [0x00007FF729E3C6A5+28789]
+        (No symbol) [0x00007FF729DA5B20]
+        (No symbol) [0x00007FF729C38F9A]
+        (No symbol) [0x00007FF729C8F346]
+        (No symbol) [0x00007FF729C8F57C]
+        (No symbol) [0x00007FF729CE2B17]
+        (No symbol) [0x00007FF729CB736F]
+        (No symbol) [0x00007FF729CDF7E3]
+        (No symbol) [0x00007FF729CB7103]
+        (No symbol) [0x00007FF729C7FFC0]
+        (No symbol) [0x00007FF729C81273]
+        GetHandleVerifier [0x00007FF72A181AED+3458237]
+        GetHandleVerifier [0x00007FF72A19829C+3550316]
+        GetHandleVerifier [0x00007FF72A18DB9D+3507565]
+        GetHandleVerifier [0x00007FF729F02C6A+841274]
+        (No symbol) [0x00007FF729DB09EF]
+        (No symbol) [0x00007FF729DACB34]
+        (No symbol) [0x00007FF729DACCD6]
+        (No symbol) [0x00007FF729D9C119]
+        BaseThreadInitThunk [0x00007FFAD5BEE8D7+23]
+        RtlUserThreadStart [0x00007FFAD6B7BF2C+44]
+
+2025-03-05 22:28:19,290 [WARNING] threads: Attempt 2 failed: Authentication failed
+WARNING:threads:Attempt 2 failed: Authentication failed
+
+DevTools listening on ws://127.0.0.1:52623/devtools/browser/bc409d28-3097-47fa-a6fb-7157cd8d257e
+[17416:14104:0305/222828.017:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0302700043C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+[17416:14104:0305/222828.045:ERROR:gles2_cmd_decoder_passthrough.cc(1082)] [GroupMarkerNotSet(crbug.com/242999)!:A0002700043C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader flag to opt in to lower security guarantees for trusted content.
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF9C258140>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8b4f3ef1acc0a6f322950bc5d0f8d434
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF9C2582C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8b4f3ef1acc0a6f322950bc5d0f8d434
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CF9C258440>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/8b4f3ef1acc0a6f322950bc5d0f8d434
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Program Files\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\main.py", line 70, in <module>
+    main()
+    ^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\main.py", line 62, in main
+    result = crew.kickoff()
+             ^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\crew.py", line 576, in kickoff
+    result = self._run_sequential_process()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\crew.py", line 683, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\crew.py", line 781, in _execute_tasks
+    task_output = task.execute_sync(
+                  ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\task.py", line 302, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\task.py", line 366, in _execute_core
+    result = agent.execute_task(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\agent.py", line 243, in execute_task
+    result = self.agent_executor.invoke(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\agents\crew_agent_executor.py", line 102, in invoke
+    formatted_answer = self._invoke_loop()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\agents\crew_agent_executor.py", line 144, in _invoke_loop
+    tool_result = self._execute_tool_and_check_finality(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\agents\crew_agent_executor.py", line 374, in _execute_tool_and_check_finality
+    tool_result = tool_usage.use(tool_calling, agent_action.text)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\tools\tool_usage.py", line 131, in use
+    return f"{self._use(tool_string=tool_string, tool=tool, calling=calling)}"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\tools\tool_usage.py", line 190, in _use
+    result = tool.invoke(input=arguments)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\crewai\tools\structured_tool.py", line 236, in invoke
+    return self.func(**parsed_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\tools\content_tools.py", line 1246, in _run
+    result = self._platform_manager.post_to_platform(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\manager.py", line 41, in post_to_platform
+    return self.platforms[platform].post_content(content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 253, in post_content
+    result = self._retry_operation(self._do_post, content, media_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 165, in _retry_operation
+    return operation_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 323, in _do_post
+    return self._retry_operation(_do_post)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 165, in _retry_operation
+    return operation_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 268, in _do_post
+    if not self.authenticate():
+           ^^^^^^^^^^^^^^^^^^^
+  File "F:\FInal Year Project\Autonomous-Social-Media-Curator-Open-Source-main\social_media_bot\platforms\threads.py", line 138, in authenticate
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "nav")))
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\support\expected_conditions.py", line 110, in _predicate
+    return driver.find_element(*locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\remote\webdriver.py", line 898, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\remote\webdriver.py", line 427, in execute
+    response = self.command_executor.execute(driver_command, params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\remote\remote_connection.py", line 404, in execute
+    return self._request(command_info[0], url, body=data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\selenium\webdriver\remote\remote_connection.py", line 428, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\poolmanager.py", line 443, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\http\client.py", line 1413, in getresponse
+    self.close()
+  File "C:\Users\LENOVO\AppData\Roaming\Python\Python312\site-packages\urllib3\connection.py", line 320, in close
+    def close(self) -> None:
+
+KeyboardInterrupt

@@ -8,7 +8,7 @@ def get_content_creator() -> Agent:
         role='Content Creator',
         goal='Create and post engaging content to configured social media platforms',
         backstory=(
-            "Expert content creator specializing in Dev.to and Mastodon platforms. "
+            "Expert content creator specializing in Dev.to, Mastodon, and Threads platforms. "
             "Creates engaging, platform-appropriate content and ensures successful posting."
         ),
         tools=[ContentTools()],

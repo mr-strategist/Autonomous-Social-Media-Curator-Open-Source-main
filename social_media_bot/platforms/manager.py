@@ -2,7 +2,7 @@ from typing import Dict, List, Any
 from .base import SocialMediaPlatform
 from .devto import DevTo
 from .mastodon import Mastodon
-from .threads import Threads
+from .threads_api import ThreadsAPI  # Import the new API-based implementation
 from ..config.platforms import Platform, PlatformConfig
 
 class PlatformManager:
@@ -13,15 +13,16 @@ class PlatformManager:
         self._initialize_platforms()
 
     def _initialize_platforms(self):
-        """Initialize enabled platforms"""
-        enabled_platforms = PlatformConfig.get_enabled_platforms()
-        
+        """Initialize all enabled platforms"""
         platform_map = {
             Platform.DEVTO: DevTo,
             Platform.MASTODON: Mastodon,
-            Platform.THREADS: Threads
+            Platform.THREADS: ThreadsAPI,  # Use the API implementation instead of Selenium
+            # ... other platforms
         }
-
+        
+        enabled_platforms = PlatformConfig.get_enabled_platforms()
+        
         for platform in enabled_platforms:
             if platform in platform_map:
                 self.platforms[platform] = platform_map[platform]()

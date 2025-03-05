@@ -17,7 +17,10 @@ An AI-powered system for autonomous social media content curation and posting us
 - Task definitions for each agent
 - Basic logging and error handling
 - Environment configuration setup
-- Social media posting tools for Twitter and LinkedIn
+- Social media posting tools for:
+  * Dev.to integration
+  * Mastodon integration
+  * Threads integration (Instagram)
 - Content validation and safety checks
 - Database schema and models
 - Error handling system
@@ -326,3 +329,26 @@ TWITTER_PASSWORD=your_twitter_password
 LINKEDIN_JSESSIONID=your_linkedin_jsessionid
 LINKEDIN_LI_AT=your_linkedin_li_at
 ``` 
+
+## Setting up the Threads API
+
+To use the official Threads API, follow these steps:
+
+1. Create a Meta Developer account at https://developers.facebook.com/
+2. Create a new app with the "Threads API" use case
+3. Configure your app settings and add the required permissions
+4. Add your redirect URI (e.g., https://your-app.com/callback)
+5. Get your Client ID and Client Secret from the app dashboard
+6. Add these credentials to your .env file:
+   ```
+   THREADS_CLIENT_ID=your_client_id
+   THREADS_CLIENT_SECRET=your_client_secret
+   THREADS_REDIRECT_URI=your_redirect_uri
+   ```
+7. Run the setup script to get your access token:
+   ```
+   python scripts/setup_threads_api.py
+   ```
+8. Follow the prompts to authorize your app and save the tokens
+
+Once set up, the bot will use the official API instead of Selenium for posting to Threads. 

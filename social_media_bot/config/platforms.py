@@ -5,6 +5,8 @@ class Platform(Enum):
     DEVTO = "dev.to"
     MASTODON = "mastodon"
     THREADS = "threads"
+    TWITTER = "twitter"
+    LINKEDIN = "linkedin"
 
 class PlatformConfig:
     """Platform configuration and availability"""
@@ -18,6 +20,8 @@ class PlatformConfig:
             enabled.append(Platform.DEVTO)
         if os.getenv('MASTODON_ACCESS_TOKEN'):
             enabled.append(Platform.MASTODON)
+        if os.getenv('INSTAGRAM_USERNAME') and os.getenv('INSTAGRAM_PASSWORD'):
+            enabled.append(Platform.THREADS)
         return enabled
 
     @staticmethod
