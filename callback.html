@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback - Autonomous Social Media Curator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .code-box {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>OAuth Authorization Complete</h1>
+    
+    <div id="loading">Processing authorization...</div>
+    
+    <div id="success" style="display:none;">
+        <p class="success">Authorization successful!</p>
+        <p>The authorization code is:</p>
+        <div class="code-box" id="auth-code"></div>
+        <p>Copy this code and use it in your application to get access tokens.</p>
+    </div>
+    
+    <div id="error" style="display:none;">
+        <p style="color: #dc3545; font-weight: bold;">Authorization failed</p>
+        <p id="error-message"></p>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+            const errorDescription = urlParams.get('error_description');
+            
+            // Hide loading message
+            document.getElementById('loading').style.display = 'none';
+            
+            if (code) {
+                // Show success message with the code
+                document.getElementById('success').style.display = 'block';
+                document.getElementById('auth-code').textContent = code;
+            } else if (error) {
+                // Show error message
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error-message').textContent = 
+                    errorDescription || 'An unknown error occurred during authorization.';
+            } else {
+                // No code or error found
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error-message').textContent = 
+                    'No authorization code was returned. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
